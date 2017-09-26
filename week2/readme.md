@@ -2,24 +2,28 @@
 
 **Outline**
 
-* Set up the project
+* Set up the project for the front end
 * Serve a static page
 * Add a template engine
 
-
 ## Set up the project
-1. (optional) Clone the project
+_It should still be setup from [week 1](../week1)_
+
+1. Clean the project
+_If you did something you want to keep, last week, you can make a branch and commit, or copy those files out.  To continue here, we are going to reset `week1` back to our code_
 ```
-git clone https://github.com/CodeLouisville/FSJS-class-project.git
 cd FSJS-class-project
+git status
+git reset --hard HEAD
+git pull
 ```
 
-2. Get rid of `week2` (we're going to rebuild it)
+2. Get rid of `week2` _(we're going to rebuild it)_
 ```
 rm -rf week2
 ```
 
-3. Copy `week1` to `week2`
+3. Copy `week1` to `week2` _(this is our starting point)_
 ```
 cp -R week1 week2
 cd week2
@@ -37,7 +41,7 @@ mkdir public
 ```
 
 2. Set up our express application to serve static files.
-Add a reference to Node's `path` module to the top of the page
+Add a reference to Node's `path` module to the top of the page in the `server.js`
 ```javascript
 const path = require('path');
 ```
@@ -45,7 +49,7 @@ const path = require('path');
 
 Then add the following line to `server.js` BEFORE any routes
 ```javascript
-const publicPath = path.resolve(__dirname, '../public');
+const publicPath = path.resolve(__dirname, './public');
 app.use(express.static(publicPath));
 ```
 [[Documentation for Node Modules (dirname)](https://nodejs.org/api/modules.html)]
